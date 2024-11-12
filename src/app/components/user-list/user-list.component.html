@@ -1,0 +1,7 @@
+<ul>
+    @for (user of users$ | async; track $index) {
+
+    <li>{{ $index }}. {{ user.name }} - {{ user.email }}</li>
+
+    }
+</ul>

@@ -1,0 +1,6 @@
+<h2>User details:</h2>
+@if (user$ | async) {
+
+Name: {{ (user$ | async)?.name }}
+
+}
