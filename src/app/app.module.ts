@@ -8,8 +8,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { usersReducer } from './store';
-import { UsersEffects } from './store/users.effects';
+import { reducers } from './store';
+import { UserEffects } from './store/user.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,9 +17,9 @@ import { UsersEffects } from './store/users.effects';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({ users: usersReducer }),
+    StoreModule.forRoot(reducers),
     environment.production ? [] : StoreDevtoolsModule.instrument(),
-    EffectsModule.forRoot([UsersEffects]),
+    EffectsModule.forRoot([UserEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,13 +1,12 @@
 import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, exhaustMap, map, of } from 'rxjs';
-import { Store } from '@ngrx/store';
 
 import { UserDataService } from '../services/user-data.service';
 import { UserActions } from './user.actions';
 
 @Injectable()
-export class UsersEffects {
+export class UserEffects {
   private actions$ = inject(Actions);
   private userDataService = inject(UserDataService);
 

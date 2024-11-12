@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { Observable, tap } from 'rxjs';
 import { User } from '../../services/model';
-import { AppState, selectUsers } from '../../store/user.selectors';
+import { selectUsers } from '../../store/user.selectors';
+import { AppState } from 'src/app/store';
 
 @Component({
   selector: 'app-user-list',

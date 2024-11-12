@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/services/model';
-import { AppState, selectUser } from 'src/app/store/user.selectors';
+import { AppState } from 'src/app/store';
+import { selectUser } from 'src/app/store/user.selectors';
 
 @Component({
   selector: 'app-user-details',

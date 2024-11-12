@@ -1,35 +1,31 @@
-import { createSelector, State } from '@ngrx/store';
+import { createFeatureSelector, createSelector, State } from '@ngrx/store';
 import { User } from '../services/model';
 
-export interface UsersState {
+export interface UserState {
   users: User[];
   user?: User;
   loading: boolean;
   error?: Error;
 }
 
-export interface AppState {
-  users: UsersState;
-}
-
-export const selectUsersState = (state: AppState) => state.users;
+export const selectUserState = createFeatureSelector<UserState>('user');
 
 export const selectLoading = createSelector(
-  selectUsersState,
-  (state: UsersState) => state.loading
+  selectUserState,
+  (state: UserState) => state.loading
 );
 
 export const selectError = createSelector(
-  selectUsersState,
-  (state: UsersState) => state.error
+  selectUserState,
+  (state: UserState) => state.error
 );
 
 export const selectUser = createSelector(
-  selectUsersState,
-  (state: UsersState) => state.user
+  selectUserState,
+  (state: UserState) => state.user
 );
 
 export const selectUsers = createSelector(
-  selectUsersState,
-  (state: UsersState) => state.users
+  selectUserState,
+  (state: UserState) => state.users
 );
