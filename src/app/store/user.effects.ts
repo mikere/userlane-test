@@ -13,18 +13,24 @@ export class UserEffects {
   usersLoad$ = createEffect(() =>
     this.actions$.pipe(
       ofType(UserActions.usersLoad),
-      exhaustMap(() => this.userDataService.getUsers()),
-      map((users) => UserActions.usersLoadSuccess({ users })),
-      catchError((error) => of(UserActions.usersLoadFailure({ error })))
+      exhaustMap(() =>
+        this.userDataService.getUsers().pipe(
+          map((users) => UserActions.usersLoadSuccess({ users })),
+          catchError((error) => of(UserActions.usersLoadFailure({ error })))
+        )
+      )
     )
   );
 
   userLoad$ = createEffect(() =>
     this.actions$.pipe(
       ofType(UserActions.userLoad),
-      exhaustMap(({ id }) => this.userDataService.getUser(id)),
-      map((user) => UserActions.userLoadSuccess({ user })),
-      catchError((error) => of(UserActions.userLoadFailure({ error })))
+      exhaustMap(({ id }) =>
+        this.userDataService.getUser(id).pipe(
+          map((user) => UserActions.userLoadSuccess({ user })),
+          catchError((error) => of(UserActions.userLoadFailure({ error })))
+        )
+      )
     )
   );
 
@@ -32,14 +38,10 @@ export class UserEffects {
     this.actions$.pipe(
       ofType(UserActions.userUpdate),
       exhaustMap(({ id, payload }) =>
-        this.userDataService.updateUser(id, payload)
-      ),
-      map((user) => ({ type: UserActions.userUpdateSuccess.type, user })),
-      catchError((error) =>
-        of({
-          type: UserActions.userUpdateFailure.type,
-          error,
-        })
+        this.userDataService.updateUser(id, payload).pipe(
+          map((user) => UserActions.userUpdateSuccess({ user })),
+          catchError((error) => of(UserActions.userUpdateFailure({ error })))
+        )
       )
     )
   );

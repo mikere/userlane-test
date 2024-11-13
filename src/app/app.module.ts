@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { reducers } from './store';
 import { UserEffects } from './store/user.effects';
+import { ErrorTrackerComponent } from './components/error-tracker/error-tracker.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { UserEffects } from './store/user.effects';
     StoreModule.forRoot(reducers),
     environment.production ? [] : StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([UserEffects]),
+    ErrorTrackerComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

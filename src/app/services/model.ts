@@ -14,3 +14,5 @@ export interface User {
 export interface UserData {
   users: User[];
 }
+
+export type Maybe<T> = T | undefined;
