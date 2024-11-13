@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { UserRole } from '../services/model';
 
+// Used for simplicity. Strings can be provided by an external service like i18n
 const roleStrings: Record<string, string> = {
   admin: 'Admin',
   guest: 'Guest',

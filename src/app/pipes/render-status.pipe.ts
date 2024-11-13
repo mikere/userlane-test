@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+// Used for simplicity. Strings can be provided by an external service like i18n
 const statusStrings: Record<string, string> = {
   online: 'Online',
   offline: 'Offline',
