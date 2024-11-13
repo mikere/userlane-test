@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { Observable, tap } from 'rxjs';
-import { User } from '../../services/model';
-import { selectUsers } from '../../store/user.selectors';
-import { AppState } from 'src/app/store';
+import { Observable } from 'rxjs';
+
+import { User } from 'src/app/services/model';
+import { AppState, selectUsers } from 'src/app/store';
 
 @Component({
   selector: 'app-user-list',
@@ -17,8 +17,6 @@ export class UserListComponent {
   users$: Observable<User[]>;
 
   constructor(private store: Store<AppState>) {
-    this.users$ = this.store
-      .select(selectUsers)
-      .pipe(tap((users) => console.log(users)));
+    this.users$ = this.store.select(selectUsers);
   }
 }

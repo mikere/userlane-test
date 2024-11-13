@@ -8,8 +8,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { reducers } from './store';
-import { UserEffects } from './store/user.effects';
+import { effects, reducers } from './store';
 import { ErrorTrackerComponent } from './components/error-tracker/error-tracker.component';
 
 @NgModule({
@@ -20,7 +19,7 @@ import { ErrorTrackerComponent } from './components/error-tracker/error-tracker.
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers),
     environment.production ? [] : StoreDevtoolsModule.instrument(),
-    EffectsModule.forRoot([UserEffects]),
+    EffectsModule.forRoot(effects),
     ErrorTrackerComponent,
   ],
   providers: [],

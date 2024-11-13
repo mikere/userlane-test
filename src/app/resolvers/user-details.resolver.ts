@@ -1,9 +1,9 @@
 import { inject } from '@angular/core';
 import { ResolveFn, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { selectUser } from '../store/user.selectors';
 import { filter, first, map, tap } from 'rxjs';
-import { UserActions } from '../store/user.actions';
+
+import { UserActions, selectUser } from '../store';
 
 export const userDetailsResolver: ResolveFn<boolean> = (route, state) => {
   const store = inject(Store);

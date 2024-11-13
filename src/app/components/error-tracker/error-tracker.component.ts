@@ -5,10 +5,9 @@ import { Store } from '@ngrx/store';
 import { skip } from 'rxjs';
 
 import { Maybe } from 'src/app/services/model';
-import { AppState } from 'src/app/store';
-import { selectError } from 'src/app/store/user.selectors';
+import { AppState, selectError } from 'src/app/store';
 
-const SNACKBAR_DISMISS_MS = 5000;
+const snackBarDismissMs = 5000;
 
 @Component({
   selector: 'app-error-tracker',
@@ -32,7 +31,7 @@ export class ErrorTrackerComponent implements OnInit {
       )
       .subscribe((err: Maybe<Error>) => {
         this.snackBar.open(err?.message || 'Something went wrong', 'Dismiss', {
-          duration: SNACKBAR_DISMISS_MS,
+          duration: snackBarDismissMs,
         });
       });
   }
