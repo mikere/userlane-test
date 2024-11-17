@@ -1,3 +1,5 @@
+<a [routerLink]="'/users'">Return to list</a>
+
 @if (user$ | async; as user) {
 
 <h2>{{ user.name }}</h2>
@@ -34,4 +36,5 @@
 </mat-list>
 
 <button mat-flat-button color="primary" (click)="editUser()">Edit</button>
+
 }

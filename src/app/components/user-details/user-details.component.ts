@@ -10,12 +10,14 @@ import { RenderStatusPipe } from 'src/app/pipes/render-status.pipe';
 import { Maybe, User } from 'src/app/services/model';
 import { AppState, selectUser } from 'src/app/store';
 import { UserDetailsEditDialogComponent } from '../user-details-edit-dialog/user-details-edit-dialog.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-user-details',
   standalone: true,
   imports: [
     CommonModule,
+    RouterLink,
     MatListModule,
     MatDialogModule,
     MatButtonModule,
