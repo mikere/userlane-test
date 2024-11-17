@@ -1,6 +1,6 @@
 import { UserEffects } from './user.effects';
 import { UserState } from './user.selectors';
-import { userReducer } from './users.reducer';
+import { userReducer } from './user.reducer';
 
 export interface AppState {
   user: UserState;

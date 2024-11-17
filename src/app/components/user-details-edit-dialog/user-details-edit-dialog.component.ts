@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -12,8 +12,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { Store } from '@ngrx/store';
 import { filter, first } from 'rxjs';
-import { Maybe, User } from 'src/app/services/model';
 
+import { Maybe, User } from 'src/app/services/model';
 import { AppState, selectUser, UserActions } from 'src/app/store';
 
 @Component({
@@ -59,14 +59,14 @@ export class UserDetailsEditDialogComponent {
   }
 
   saveUser() {
-    if (this.userDetailsForm.valid && this.user) {
-      this.store.dispatch(
-        UserActions.userUpdate({
-          id: this.user.id,
-          payload: this.userDetailsForm.value,
-        })
-      );
-      this.dialogRef.close();
-    }
+    this.store.dispatch(
+      UserActions.userUpdate({
+        // saveUser won't be called if the form is invalid.
+        // Initial validity is possible only if the user is defined
+        id: this.user!.id,
+        payload: this.userDetailsForm.value,
+      })
+    );
+    this.dialogRef.close();
   }
 }

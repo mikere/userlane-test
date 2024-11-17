@@ -2,7 +2,7 @@ import { Component, DestroyRef, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
-import { skip } from 'rxjs';
+import { skipWhile } from 'rxjs';
 
 import { Maybe } from 'src/app/services/model';
 import { AppState, selectError } from 'src/app/store';
@@ -26,7 +26,7 @@ export class ErrorTrackerComponent implements OnInit {
     this.store
       .select(selectError)
       .pipe(
-        skip(1), // ignore current value, notify only on subsequent
+        skipWhile((err) => !err), // ignore initial empty values, notify only on subsequent
         takeUntilDestroyed(this.destroyRef)
       )
       .subscribe((err: Maybe<Error>) => {
