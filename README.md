@@ -12,7 +12,8 @@
   - Filtering is pretty basic since the core `mat-table` API doesn't allow more sophisticated search
 - User Details
 - User Editing
-  - I decided to allow only the `name`, `email`, and `role` fields to be edited since the `id` must not be changed, and it's not logical to edit the user's status and joining date. In the real world it would depend on the exact requirements.
+  - I decided to allow only the `name`, `email`, and `role` fields to be edited since the `id` must not be changed, and it's not logical to edit the user's status and joining date. In the real life it would depend on the exact requirements.
+  - Choosing the validation message is managed by the template logic because of its simplicity, but it can also be moved out to the component or the service level.
 - State Mangement with NgRx
 - Reactive Programming with RxJS
 - Unit Testing

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -39,11 +39,16 @@ export class UserDetailsEditDialogComponent {
     private dialogRef: MatDialogRef<UserDetailsEditDialogComponent>,
     private store: Store<AppState>
   ) {
-    this.userDetailsForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      role: [''],
-    });
+    this.userDetailsForm = this.fb.group(
+      {
+        name: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        role: [''],
+      },
+      {
+        updateOn: 'blur',
+      }
+    );
 
     this.store
       .select(selectUser)
@@ -68,5 +73,13 @@ export class UserDetailsEditDialogComponent {
       })
     );
     this.dialogRef.close();
+  }
+
+  get email() {
+    return this.userDetailsForm.get('email');
+  }
+
+  get name() {
+    return this.userDetailsForm.get('name');
   }
 }
