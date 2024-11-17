@@ -8,16 +8,16 @@
 ### What's implemented
 
 - List of employees with the basic information
-  - Since we don't use the external API, there's no need to provide pagination, but `mat-paginator` should provide the basic functionality if needed
-  - Filtering is pretty basic since the core `mat-table` API doesn't allow more sophisticated search
+  - Since we don't use the external API, there's no need to provide pagination, but `mat-paginator` should provide the basic functionality if needed.
+  - Filtering is pretty basic since the core `mat-table` API doesn't allow for a more sophisticated search.
 - User Details
 - User Editing
-  - I decided to allow only the `name`, `email`, and `role` fields to be edited since the `id` must not be changed, and it's not logical to edit the user's status and joining date. In the real life it would depend on the exact requirements.
+  - I decided to allow only the `name`, `email`, and `role` fields to be edited since the `id` must not be changed, and it's not logical to edit the user's status and joining date. In real life, it would depend on the exact requirements.
   - Choosing the validation message is managed by the template logic because of its simplicity, but it can also be moved out to the component or the service level.
-- State Mangement with NgRx
+- State Management with NgRx
 - Reactive Programming with RxJS
 - Unit Testing
-  - I created several unit tests for each type of the tested entity, since the approach would be the same for the rest. Test coverage is up to 60%, but my usual "good enough" criteria is 80% and up.
+  - I created several unit tests for each type of the tested entity since the approach would be the same for the rest. Test coverage is up to 60%, but my usual "good enough" criterion is 80% and up.
 - Styling
 
 ### What's not implemented
