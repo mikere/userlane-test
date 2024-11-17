@@ -23,6 +23,7 @@ export class ErrorTrackerComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // Watch for the errors in the store and open a snackbar if any
     this.store
       .select(selectError)
       .pipe(

@@ -5,6 +5,10 @@ import { filter, first, map, tap } from 'rxjs';
 
 import { UserActions, selectUser } from '../store';
 
+/**
+ * Resolves an user data by fairing the 'userLoad' action if the user is empty or returning user's data if it's not.
+ * Navigates to /users if user id is empty
+ */
 export const userDetailsResolver: ResolveFn<boolean> = (route, state) => {
   const store = inject(Store);
   const router = inject(Router);
